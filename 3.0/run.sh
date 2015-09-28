@@ -15,6 +15,10 @@ if [ "$OPLOG_SIZE" != "" ]; then
     cmd="$cmd --oplogSize $OPLOG_SIZE"
 fi
 
+if [ "$REPLICA_SET_NAME" != "" ]; then
+    cmd="$cmd --replSet $REPLICA_SET_NAME"
+fi
+
 $cmd &
 
 if [ ! -f /data/db/.mongodb_password_set ]; then
